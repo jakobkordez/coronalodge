@@ -18,9 +18,8 @@ const cancelEmoji = '❌';
 
 @Discord()
 export class PlaylistModule {
-  // @Rules(/^\s*\w+(\s+\w+)*\s*-\s*\w+(\s+\w+)*\s*$/)
   @Command()
-  @Rules(/.*/)
+  @Rules(/^(?!cl!.*$).*/)
   @Guard(IsNotBot)
   public async addSong(message: CommandMessage): Promise<void> {
     if (!playlistService.isBound(message.channel.id)) return;
